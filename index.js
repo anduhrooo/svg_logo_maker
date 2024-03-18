@@ -1,10 +1,7 @@
 const inquirer = require('inquirer');
 const colors = require('colors');
 const fs = require('fs');
-
-// class Shapes {}
-
-// module.exports = Shapes;
+const { generateLogo } = require('./lib/generateLogo');
 
 inquirer
     .prompt([
@@ -36,8 +33,13 @@ inquirer
         console.log("Text Color:", response.textColor);
         console.log("Shape:", response.shape);
         console.log("Shape Color:", response.shapeColor);
+        const generateSVG = generateLogo(response.shapeColor, response.textColor, response.shape, response.text);
 
-        // fs.createFile(`${response.text}.svg`, `${response.text}\n${response.language}\n${response.communication}`, (err) => {
-        //     err ? console.error(err) : console.log('Generated ${response.text}.svg');
-        // })
-    })
+        fs.writeFile(`./svgOutput/${response.text}.svg`, generateSVG, (err) => {
+            if (err) {
+                console.error(err);
+            } else {
+                console.log(`Generated ${response.text}.svg`);
+            }
+        });
+    });
