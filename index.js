@@ -1,7 +1,7 @@
 const inquirer = require('inquirer');
 const colors = require('colors');
 const fs = require('fs');
-const { generateLogo } = require('./lib/generateLogo');
+const generateLogo = require('./lib/generateLogo');
 
 inquirer
     .prompt([
