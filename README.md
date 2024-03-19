@@ -23,6 +23,8 @@ clone the repository and run 'npm i' while pointed at the svg_logo_maker directo
 
 ## Usage
 
+video demo: https://youtu.be/4km5wpxdGRI
+
 after installing the necessary npm packages, run 'node index.js' in the terminal to run the program. user wil be prompted to provide text, text color, shape and shape color in order to generate a logo.
 
 ## Test
